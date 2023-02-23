@@ -1,6 +1,21 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [term, setTerm] = useState("");
+
+  useEffect(()=>{
+    fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`)
+    .then(response => response.json())
+    .then(data => {
+      setImages(data.hits);
+      setLoading(false);
+    })
+    .catch(error => console.error(error))
+  }, [])
+
   return (
     <div className='max-w-sm shadow-lg overflow-hidden rounded'>
       <img src="https:/source.unsplash.com/random" alt="" className="w-full" />
