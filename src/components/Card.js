@@ -13,7 +13,7 @@ const Card = ({ image }) => {
             <li><strong>Download: </strong>{image.downloads}</li>
             </ul>
         </div>
-        <div className="px-6 py-4">
+        <div className="px-4 py-2">
             {tags.map((tag, index) => (
                 <span key={index} className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2'>
                  #{tag}
@@ -24,4 +24,4 @@ const Card = ({ image }) => {
     )
 }
 
-export default Card
+export default Card;
