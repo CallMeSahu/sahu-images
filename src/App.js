@@ -19,13 +19,15 @@ function App() {
 
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-3 gap-4">
-        {
-          images.map(image => (
-            <Card key={image.id} image={image} />
-          ))
-        }
-      </div>
+      {loading 
+       ? <h1 className='text-3xl font-bold text-center'>Loading...</h1> 
+       : <div className="grid grid-cols-3 gap-4">
+          {
+            images.map(image => (
+              <Card key={image.id} image={image} />
+            ))
+          }
+        </div>}      
     </div>
   );
 }
